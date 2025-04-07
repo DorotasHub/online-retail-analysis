@@ -1,1 +1,1 @@
-# foil-de-retail-case-study
+# FOIL case study: online retail data analysis
