@@ -88,13 +88,13 @@ cdf = cdf.drop_duplicates()
 valid_txns = cdf[cdf['IsValidSale'] | cdf['IsValidReturn']].copy()
 
 # filter out non-product transactions
-keywords = ["FEE", "MANUAL", "ADJUST", "POSTAGE", "CREDIT", "CHARGES", "SAMPLES", "Discount"]
+keywords = ["FEE", "ADJUST", "POSTAGE", "CREDIT", "CHARGES", "SAMPLES", "Discount"]
 pattern = '|'.join(keywords)
 
 sales_df = valid_txns[valid_txns["IsValidSale"]].copy()
 filtered_sales_df = sales_df[~sales_df["Description"].str.contains(pattern, case=False, na=False)]
-# filtered_sales_df.to_csv("data/filtered_sales.csv", index=False)
+filtered_sales_df.to_csv("data/filtered_sales.csv", index=False)
 
 returns_df = valid_txns[valid_txns["IsValidReturn"]].copy()
 filtered_returns_df = returns_df[~returns_df["Description"].str.contains(pattern, case=False, na=False)]
-# filtered_returns_df.to_csv("data/filtered_returns.csv", index=False)
+filtered_returns_df.to_csv("data/filtered_returns.csv", index=False)
