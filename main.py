@@ -31,7 +31,7 @@ for _, row in grouped.iterrows():
 
     stockcodes[stockcode][description] = count
 # # write dict to file for viz    
-# with open('stockcodes.json', 'w') as f:
+# with open('data/stockcodes.json', 'w') as f:
 #     json.dump(stockcodes, f, indent=4)
 
 # create dict mapping stockcode to most common desc
@@ -39,7 +39,7 @@ most_common_desc = {
     code: max(descs.items(), key=lambda x: x[1])[0]
     for code, descs in stockcodes.items()
 }
-# with open('most_common_desc.json', 'w') as f:
+# with open('data/most_common_desc.json', 'w') as f:
 #     json.dump(most_common_desc, f, indent=4)
 
 cdf['StandardizedDescription'] = cdf['StockCode'].map(most_common_desc).astype('string')
