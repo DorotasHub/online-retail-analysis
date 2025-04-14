@@ -84,7 +84,7 @@ cdf['IsValidReturn'] = (
 # Remove duplicates
 cdf = cdf.drop_duplicates()
 
-# Grab only valid txns
+# Grab only valid sale & return txns 
 valid_txns = cdf[cdf['IsValidSale'] | cdf['IsValidReturn']].copy()
 
 # filter out non-product transactions
